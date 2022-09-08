@@ -1,16 +1,16 @@
-let string = "rotator";
-const isPalindrome = (str) => {
-  let condition = "";
-
-  for (let i = str.length - 1; i >= 0; i--) {
-    condition += str[i];
+let arr = ["alma","albalı","alça"]
+let commonPrefix = (strs)=> {
+  let prefix = strs.reduce((acc, str) => str.length < acc.length ? str : acc);
+  
+  for (let str of strs) {
+      while (str.slice(0, prefix.length) != prefix) {
+          prefix = prefix.slice(0, -1);
+      }
   }
-
-  if (condition === str) {
-    console.log(condition + ": is Palindrome word");
-  } else {
-    console.log(condition + ": isn't Palindrome word");
-  }
+  return prefix;
 };
 
-isPalindrome(string);
+
+
+console.log(commonPrefix(arr))
+
